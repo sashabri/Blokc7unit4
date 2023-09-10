@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentMap;
 // Stub
 public class PostRepository {
   private final String NOT_FOUND_MESSAGE = "Такого поста не существует.";
-  private long counter = 1;
+  private volatile long counter = 1;
   private Map<Long, Post> listPosts = new ConcurrentHashMap<>();
   public List<Post> all() {
     return (List<Post>) listPosts.values();
