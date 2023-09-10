@@ -13,7 +13,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <webapp-runner.version>9.0.78.0</webapp-runner.version>
+        <webapp-runner.version>9.0.27.1</webapp-runner.version>
     </properties>
 
     <dependencies>
@@ -46,7 +46,7 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>com.github.heroku</groupId>
+                                    <groupId>com.github.jsimone</groupId>
                                     <artifactId>webapp-runner</artifactId>
                                     <version>${webapp-runner.version}</version>
                                     <destFileName>webapp-runner.jar</destFileName>
