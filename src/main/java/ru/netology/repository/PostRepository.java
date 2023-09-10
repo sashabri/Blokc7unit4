@@ -17,11 +17,7 @@ public class PostRepository {
   }
 
   public Optional<Post> getById(long id) {
-    if (listPosts.containsKey(id)) {
       return Optional.of(listPosts.get(id));
-    } else {
-        throw new NotFoundException(NOT_FOUND_MESSAGE);
-    }
   }
 
   public Post save(Post post) {
@@ -39,10 +35,6 @@ public class PostRepository {
   }
 
   public void removeById(long id) {
-    if (listPosts.containsKey(id)) {
-      listPosts.remove(id);
-    } else {
-    throw new NotFoundException(NOT_FOUND_MESSAGE);
-  }
+    listPosts.remove(id);
   }
 }
