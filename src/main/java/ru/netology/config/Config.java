@@ -2,6 +2,8 @@ package ru.netology.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.json.GsonHttpMessageConverter;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import ru.netology.controller.PostController;
 import ru.netology.repository.PostRepository;
 import ru.netology.service.PostService;
@@ -9,17 +11,9 @@ import ru.netology.service.PostService;
 @Configuration
 public class Config {
     @Bean
-    public PostController postController() {
-        return new PostController(postService());
-    }
-
-    @Bean
-    public PostService postService() {
-        return new PostService(postRepositpry());
-    }
-
-    @Bean
-    public PostRepository postRepositpry() {
-        return new PostRepository();
+    public RequestMappingHandlerAdapter requestMappingHandlerAdapter() {
+        final var bean = new RequestMappingHandlerAdapter();
+        bean.getMessageConverters().add(new GsonHttpMessageConverter());
+        return bean;
     }
 }
